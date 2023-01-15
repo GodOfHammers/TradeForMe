@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Trade For Me Login </title>
+    <link rel="stylesheet" href="tfm.css" type="text/css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script>
+        function clearScreen() {
+            document.getElementById("name").value = "";
+            document.getElementById("password").value = "";
+        }
+    </script>
+
+</head>
+
+<body style="font-family: Fjalla One;">
+
+    <h1> Trade For Me </h1>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="topnav">
+        <a href="index.html" class="title_links active"> Login </a>
+    </div>
+
+    <form method="POST" action="Login.php" class="form_1">
+        <h3> Login </h3>
+        <label for="name" class="required"> User Id &nbsp;&nbsp;&nbsp;: </label>
+        <input type="text" id="name" name="name" placeholder="Enter user id" required><br/>
+
+        <label for="password" class="required"> Password: </label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required><br/>
+
+        <button type="reset" id="reset_1" onclick="clearScreen();"> Cancel </button>
+        <button type="submit" id="submit_1"> Submit </button> &nbsp;&nbsp;&nbsp;
+        <a href="index.html" onclick="alert('Mail sent to admin');" id="forgotpwd"> Forgot Password? </a>
+    </form>
+
+    <footer>
+        <ul>
+            <li><a href="#"><i class="fa fa-facebook-f" aria-hidden="true" style='color:grey'> </i> </a> </li>
+            <li><a href="#"><i class="fa fa-twitter" aria hidden="true" style='color:grey'> </i> </a> </li>
+            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true" style='color:grey'> </i> </a></li>
+            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true" style='color:grey'> </i> </a></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

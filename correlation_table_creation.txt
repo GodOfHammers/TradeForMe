@@ -1,0 +1,52 @@
+create table correlation (id smallint auto_increment primary key, 
+                          sector_name varchar(30) not null,
+                          company_short_name varchar(10) not null,
+                          twitterati_id varchar(30) not null,
+                          cf float not null
+                         );
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "AADI", "1001", 0.7);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "AADI", "1002", 0.8);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "AADI", "1003", 0.3);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "AADI", "1004", 0.1);
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "ABT", "1002", 0.6);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "ABT", "1004", 0.8);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "ABT", "1005", 0.2);
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "ABCL", "1001", 0.8);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "ABCL", "1002", 0.5);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "ABCL", "1004", 0.4);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("healthcare", "ABCL", "1005", 0.3);
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("energy", "AMPY", "1001", 0.9);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("energy", "AMPY", "1002", 0.7);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("energy", "AMPY", "1003", 0.3);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("energy", "AMPY", "1004", 0.2);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("energy", "AMPY", "1005", 0.2);
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("energy", "BATL", "1002", 0.6);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("energy", "BATL", "1004", 0.6);
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("Technology", "ACN", "1001", 0.5);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("Technology", "ACN", "1003", 0.3);
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "ADBE", "1001", 0.4);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "ADBE", "1002", 0.2);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "ADBE", "1004", 0.2);
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "AFRM", "1002", 0.6);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "AFRM", "1003", 0.8);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "AFRM", "1004", 0.9);
+
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "AGMH", "1001", 0.8);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "AGMH", "1003", 0.7);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "AGMH", "1004", 0.4);
+insert into correlation (sector_name, company_short_name, twitterati_id, cf) values ("technology", "AGMH", "1005", 0.1);
+
+select sector_name,company_short_name,max(cf) from correlation where cf > 0.5 group by company_short_name;
+
+#select correlation.* from table correlation
+#inner join (select company_short_name, max(cf) as latest from correlation group by company_id) r
+#  on correlation.cf = r.latest and l.company_id = r.company_id
+#order by cf desc
