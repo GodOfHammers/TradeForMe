@@ -47,7 +47,7 @@ License
     This project is licensed under the MIT License - see the LICENSE file for details.
 
 Acknowledgments
-    1. Dr.Bernardo Nunes
+    1. Dr.Bernardo Pereira Nunes
     2. Dr.Artem Lenskiy
 
 
