@@ -1,3 +1,17 @@
+/* This code is CSS styling for a webpage.
+
+The background image of the entire html document is set to "Hospital.jpg"
+The font-family of the body is set to "Fjalla One"
+The first h1 element has specific styling applied to it such as text alignment, background color, margin, and border properties
+The class "title_links" has specific font weight and size properties applied to it
+The class "topnav" has a specific background color applied to it and elements within it will have "overflow: hidden" property
+Elements within the "topnav" class will have specific styling applied to them when hovered over or are active
+The class "rname" has specific padding and text-alignment properties applied to it
+The class "dropdown" has elements within it that will have specific styling applied to them when hovered over
+The class "form_1" has specific padding properties applied to it and elements within it will have "align-items: center" property
+h3 elements within a form will have specific text alignment, margin, font-size, and color properties applied to it
+Labels within a form will have specific margin, color, font-weight, font-size, letter-spacing, background, padding, and display properties applied to it. */
+
 html {
     background-image: url(Hospital.jpg);
 }

@@ -44,7 +44,10 @@ Built With
     Scikit-learn - Machine Learning Library
 
 License
-    This project is licensed under the MIT License - see the LICENSE file for details.
+    This project is licensed under the Australian National University Open Source License. 
+    It is intended for non-commercial use and any use of the software or source code must acknowledge the Australian National University as the original source. 
+    Redistribution and derivative works are allowed under the condition that they are also licensed under the same terms.
+
 
 Acknowledgments
     1. Dr.Bernardo Pereira Nunes
