@@ -30,11 +30,14 @@ else
     displayCustomerMenu ($loginId);
 }
 
+//connect to the database
 $conn = OpenCon();
 
+//create and execute the delete query
 $sql = 'delete from user where user_id=\'' . $name . '\';';
 if (!$result = $conn->query($sql)) 
 {
+    //if query fails, display an error message
     echo "Sorry, this website is experiencing problems.";
     echo "Error: Query failed to execute, here is why: <br>";
     echo "Query: " . $sql . "<br>";
@@ -43,9 +46,11 @@ if (!$result = $conn->query($sql))
 }
 else 
 {
+    //if query is successful, display a success message
     echo "<br><br><center>User '" . $name . "' is deleted successfully</center>";
 }
 
+//close the connection
 CloseCon($conn);
 
 echo "    <footer>";
@@ -62,4 +67,3 @@ echo "</body>";
 echo "</html>";
 
 ?>
-

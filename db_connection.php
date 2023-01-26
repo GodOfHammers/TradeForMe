@@ -1,5 +1,6 @@
 <?php
 
+// Function to open a connection to the database
 function OpenCon()
 {
   $servername = "localhost";
@@ -16,6 +17,7 @@ function OpenCon()
   return $conn;
 }
 
+// Function to close the connection to the database
 function CloseCon($conn)
 {
   $conn -> close();
@@ -60,8 +62,10 @@ function getPassword($conn, $name)
   }
 }
 
+// Function to get a list of sectors from the database
 function getSectorList ()
 {
+  // Open a connection to the database
   $conn = OpenCon();
 
   // Check if the sector table exists
@@ -76,9 +80,11 @@ function getSectorList ()
     return "";
   }  
 
+  // Select all sectors from the sector table
   $sql = "select * from sector;";
   if (!$result = $conn->query($sql)) 
   {
+    // Handle error
     echo "<br><br>Sorry, this website is experiencing problems.";
     echo "Error: Query failed to search for list of Sectors, here is why: <br>";
     echo "Query: " . $sql . "<br>";
@@ -90,6 +96,7 @@ function getSectorList ()
   
   $sectorCount = 0;
 
+  // Loop through the results and create a dropdown list of sectors
   while($row = $result->fetch_assoc())
   {
     if ($sectorCount == 0)
@@ -118,11 +125,13 @@ function getSectorList ()
   }
 }
 
+// Function to get a list of companies from a specific sector in the database
 function getCompanyList ($sector)
 {
+  // Open a connection to the database
   $conn = OpenCon();
 
-  // Check if the sector table exists
+  // Check if the company table exists
   $sql = "SELECT COUNT(*)FROM information_schema.tables WHERE table_schema =  DATABASE() AND table_name=\"company\";";
   $result = $conn->query($sql);
 

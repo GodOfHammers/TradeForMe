@@ -16,46 +16,61 @@ echo "</head>" ;
 
 echo "<body>" ;
 
+// get the login id and input password from the form
 $loginId=$_POST["name"];
 $InputPassword =$_POST["password"];
 
+// open connection to the database
 $conn = OpenCon();
+
+// get the password for the entered login id from the database
 $DbPassword = getPassword ($conn, $loginId);
+
+// close the connection to the database
 CloseCon($conn);
 
 echo "    <h1> Trade For Me </h1> <br><br><br>" ;
 
+// check if the entered login id exists in the database
 if ($DbPassword == "" )
 {
+    // if login id does not exist, display login menu and error message
 	displayLoginMenu();
-        echo "<br><br><center>Unknown user : " . $loginId . " <br>Please try again.</center>";
+    echo "<br><br><center>Unknown user : " . $loginId . " <br>Please try again.</center>";
 
 	// echo "<br>Debug: SQL query used is: " . $sql;
 }
 elseif ($InputPassword != $DbPassword)
 {
+    // if login id exists but entered password does not match, display login menu and error message
 	displayLoginMenu();
-        echo "<br><br><center>Password did not match for user : " . $loginId . " <br>Please try again.</center>";
+    echo "<br><br><center>Password did not match for user : " . $loginId . " <br>Please try again.</center>";
 }
 else // User exists and passwords matched
 {
-
+    // if login id and password are correct, check if the user is admin or customer
 	if ($loginId == 'admin')
 	{
+		// if admin, display admin menu
 		displayAdminMenu($loginId);
 	}
 	else //if ($user_type == "customer")
 	{
+		// if customer, display customer menu
 		displayCustomerMenu($loginId);
 	}
 }
 
+// create a form to pass the login id to the next page
 echo "    <form method='POST' action='Login.php' class='form_1'>" ;
 
+// check if the input login id or password is incorrect
 if ($DbPassword == "" or $InputPassword != $DbPassword)
 {
+    // if login id or password is incorrect, do nothing
 	#displayLoginScreen();
 }
+// check if the login id is either admin or customer
 elseif ($loginId == "admin" || $loginId == "customer" )
 {
 	echo "<center>" ;
@@ -67,6 +82,7 @@ elseif ($loginId == "admin" || $loginId == "customer" )
 }
 else
 {
+	// if login id is not admin or customer, do nothing
 	#displayLoginScreen();
 }
 

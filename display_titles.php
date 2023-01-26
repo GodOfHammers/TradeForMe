@@ -1,34 +1,38 @@
 <?php
-
+// function to display login menu
 function displayLoginMenu()
 {
 	echo "<div class='topnav'>";		 
 	echo "<a href='index.html' class='title_links active' style='background-color: #4CAF50;'> Login </a>" ;
 	echo "</div>";
-
 }
 
+// function to display login screen
 function displayLoginScreen()
 {
 	echo "<center>" ;
         echo "<h3> Login </h3>";
 
+        // input fields for login id and password
         echo "<label for='name' class='required'> User Id: </label>";
         echo "<input type='text' id='name' name='name' placeholder='Enter user id' style='margin-left: 4px;' required><br/>";
 
         echo "<label for='password' class='required'> Password: </label>";
         echo "<input type='password' id='password' name='password' placeholder='Enter password' required><br/>";
 
+        // submit and cancel buttons
         echo "<button type='reset' id='reset_1'> Cancel </button>";
         echo "<button type='submit' id='submit_1'> Submit </button><br/><br/>";
+
+        // forgot password link
         echo "<a href='index.html' id='forgotpwd'> Forgot Password? </a>";
 	echo "</center>";
 }
 
+// function to display admin menu
 function displayAdminMenu ($loginId)
 {
 	echo "<div class='topnav'>";		 
-	//echo "<a href='index.html' class='title_links active' style='background-color: #4CAF50;'> Login </a>" ;
 	echo "<div class='dropdown'>
 				<button class='dropbtn'>User
 					<i class='fa fa-caret-down'></i>

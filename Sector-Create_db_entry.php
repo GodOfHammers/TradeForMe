@@ -7,15 +7,19 @@ echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
 echo "";
 echo "<head>";
+// Set the page title
 echo "    <title> TFM : Sector Create</title>";
+// Include CSS stylesheets
 echo "    <link rel='stylesheet' href='tfm.css' type='text/css'>";
 echo "    <link href='https://fonts.googleapis.com/css?family=Fjalla One' rel='stylesheet'>";
 echo "    <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>";
+// Set the viewport for responsive design
 echo "    <meta charset='UTF-8' name='viewport' content='width=device-width,initial-scale=1.0'>";
 echo "</head>";
 
 echo "<body>";
 
+// Get the loginId and name from the form
 $loginId=$_POST["loginId"];
 $name=$_POST["name"];
 

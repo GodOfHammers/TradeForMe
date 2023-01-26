@@ -23,20 +23,25 @@ echo "<script>
 
 echo "<body>";
 
+// get loginId and name of sector from POST
 $loginId=$_POST["loginId"];
 $name=$_POST["sector"];
 
 echo "    <h1> Trade For Me </h1>";
 echo "<BR><BR><BR>";
+// call function to display admin menu
 displayAdminMenu ($loginId);
 
+// open database connection
 $conn = OpenCon();
 
+// check if company table exists in the database
 $sql = "SELECT COUNT(*)FROM information_schema.tables WHERE table_schema =  DATABASE() AND table_name=\"company\";";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 if ($row['COUNT(*)'] == 1)
 {
+    // check if there are any companies associated with the sector
     $sql = "SELECT COUNT(*)FROM company WHERE sector = '" . $name . "'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -57,19 +62,21 @@ echo "        <button type='reset' onclick='cancelHandler()' id='reset_1'> Cance
 echo "        <button type='submit' id='submit_1'> Confirm To Delete</button><br/><br/>";
 echo "    </form>";
 
+// close the database connection
 CloseCon($conn);
 
-echo "    <footer>";
-echo "        <ul>";
-echo "            <li><a href='#'><i class='fa fa-facebook-f' aria-hidden='true' style='color:grey'> </i> </a> </li>";
-echo "            <li><a href='#'><i class='fa fa-twitter' aria hidden='true' style='color:grey'> </i> </a> </li>";
-echo "            <li><a href='#'><i class='fa fa-instagram' aria-hidden='true' style='color:grey'> </i> </a></li>";
-echo "            <li><a href='#'><i class='fa fa-linkedin' aria-hidden='true' style='color:grey'> </i> </a></li>";
-echo "        </ul>";
-echo "    </footer>";
+//Footer section with social media links
+echo " <footer>";
+echo " <ul>";
+echo " <li><a href='#'><i class='fa fa-facebook-f' aria-hidden='true' style='color:grey'> </i> </a> </li>";
+echo " <li><a href='#'><i class='fa fa-twitter' aria hidden='true' style='color:grey'> </i> </a> </li>";
+echo " <li><a href='#'><i class='fa fa-instagram' aria-hidden='true' style='color:grey'> </i> </a></li>";
+echo " <li><a href='#'><i class='fa fa-linkedin' aria-hidden='true' style='color:grey'> </i> </a></li>";
+echo " </ul>";
+echo " </footer>";
 
+//Closing body and html tags
 echo "</body>";
-
 echo "</html>";
 
 ?>

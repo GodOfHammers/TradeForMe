@@ -86,18 +86,18 @@ catch (Exception $e) {
 
 CloseCon($conn);
 
-echo "    <footer>";
-echo "        <ul>";
-echo "            <li><a href='#'><i class='fa fa-facebook-f' aria-hidden='true' style='color:grey'> </i> </a> </li>";
-echo "            <li><a href='#'><i class='fa fa-twitter' aria hidden='true' style='color:grey'> </i> </a> </li>";
-echo "            <li><a href='#'><i class='fa fa-instagram' aria-hidden='true' style='color:grey'> </i> </a></li>";
-echo "            <li><a href='#'><i class='fa fa-linkedin' aria-hidden='true' style='color:grey'> </i> </a></li>";
-echo "        </ul>";
-echo "    </footer>";
+//Footer section with social media links
+echo " <footer>";
+echo " <ul>";
+echo " <li><a href='#'><i class='fa fa-facebook-f' aria-hidden='true' style='color:grey'> </i> </a> </li>";
+echo " <li><a href='#'><i class='fa fa-twitter' aria hidden='true' style='color:grey'> </i> </a> </li>";
+echo " <li><a href='#'><i class='fa fa-instagram' aria-hidden='true' style='color:grey'> </i> </a></li>";
+echo " <li><a href='#'><i class='fa fa-linkedin' aria-hidden='true' style='color:grey'> </i> </a></li>";
+echo " </ul>";
+echo " </footer>";
 
+//Closing body and html tags
 echo "</body>";
-
 echo "</html>";
-
 
 ?>
