@@ -34,12 +34,14 @@ def main():
         # navigate to the page with the desired list element
         driver.get("http://localhost/tfm/Get_Reliable_Twitteratis.php?name=admin")
 
+        # Finding the web elements
         dropdown = driver.find_element(By.ID, "sectorList")
         list = driver.find_element(By.ID, "companies")
         from_date_field = driver.find_element(By.ID, "fromDate")
         to_date_field = driver.find_element(By.ID, "toDate")
 
         while True:
+            # Clicking on the dropdown and getting the selected option
             dropdown.click()
             dropdown_options = dropdown.find_elements(By.TAG_NAME, "option")
             for option in dropdown_options:
@@ -49,6 +51,7 @@ def main():
                 else:
                     sector = "No sector was selected"
 
+            # Clicking on the list of companies and getting the selected option
             list.click()
             list_options = list.find_elements(By.TAG_NAME, "option")
             for option in list_options:
@@ -58,11 +61,14 @@ def main():
                 else:
                     company = "No company was selected"
             
+            # Getting the values of the date fields
             from_date = from_date_field.get_attribute("value")
             to_date = to_date_field.get_attribute("value")
             
+            # Function to fetch tweets
             get_tweets(company, from_date, to_date)
 
+            # Sleep for 10 seconds
             time.sleep(10)
         
     else:
@@ -71,9 +77,12 @@ def main():
     # close the session
     driver.quit()
 
+    # reading csv file
     apple_df = pd.read_csv("./Apple_Final_Scores_Traders.csv")
+    # sorting the dataframe by final_score
     apple_df = apple_df.sort_values(by="final_score",ascending=False)
     
+    # returning the dataframe with user_names and final_score columns and resetting the index
     return apple_df[["user_names", "final_score"]].reset_index(drop=True)
 
 if __name__ == "__main__":

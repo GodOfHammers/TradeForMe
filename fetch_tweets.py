@@ -74,7 +74,10 @@ def scrape_recent_tweets(user_name, company_name, time):
     
         
 if __name__ == "__main__":
+    # Get the current directory
     curr_dir = os.getcwd()
+    # Data Directory path
     data_dir = f"./Stock_Data/5min/*.csv"
+    # Call the function to fetch the tweets
     get_tweets(curr_dir,data_dir)
 #     scrape_recent_tweets("AbyssOfNight210","AAPL",5)
