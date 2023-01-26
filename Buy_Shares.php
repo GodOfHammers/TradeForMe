@@ -18,6 +18,10 @@ table, th, td {
 }
 </style>";
 
+// This script is used to handle the cancel button on the form.
+// When the user clicks on the cancel button, the script will loop through all the elements in the form and set their values to empty.
+// This way, all the data entered by the user will be cleared and they can start fresh.
+// The function is called when the cancel button is clicked via the onclick attribute in the HTML.
 echo "<script>
   function cancelHandler()
   {
@@ -50,11 +54,14 @@ $index = 0;
 $cost = 0;
 foreach ($_POST as $param_name => $param_val) {
   
+  // Here we check if the current index is the last element of the array, which is the investment value.
+  // We break the loop if this is the case
   if ($index == ($param_count - 2))
   {
     //echo "Printing from break condition - index = ". $index . "<BR>\n";
     break;
   }
+  // Here we check if the current index is even, in order to know if it corresponds to the share count or current price value
   if ($index % 2 == 0)
   {
     //echo "index = ". $index . "<BR>\n";
@@ -72,6 +79,8 @@ foreach ($_POST as $param_name => $param_val) {
 }
 echo "Total cost = " . $cost . " USD <BR><BR>\n";
 
+
+// If the total cost of the shares selected is more than the available investment, display an error message
 if ($cost > $investment)
   echo "<Font color=red>Available investment is more than the cost of selected shares.<BR> Change the number of shares to fit in to the available budget " . $investment . " USD </font><BR>\n";
 else if ($cost == 0)
